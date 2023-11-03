@@ -1,0 +1,5 @@
+---
+- src : https://github.com/simplon-choukriraja/brief12-anssi
+  name: anssi-recom
+  scm: git
+  version: main
