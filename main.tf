@@ -82,8 +82,11 @@ resource "azurerm_linux_virtual_machine" "vm" {
   admin_username                  = var.admin
 
   provisioner "local-exec" {
-    command = "ansible-playbook playbook.yml -i azure_rm.yml"
-    working_dir = "/Users/raja/Desktop/brief12/ansible" 
+     command = <<-EOT
+       ansible-galaxy install -r requirements.yml
+       ansible-playbook playbook.yml -i azure_rm.yml
+     EOT    
+     working_dir = "/Users/raja/Desktop/brief12/ansible" 
   } 
 }
 
