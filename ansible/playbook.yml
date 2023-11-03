@@ -1,0 +1,16 @@
+---
+- name: recomendation ANSSI
+  hosts: all
+  remote_user: rj
+  become: true
+  gather_facts: true
+  roles: 
+    - role: "anssi-recom" 
+      ignore_errors: true
+  tasks:
+    - name: Install SCAP
+      yum:
+        name:
+          - openscap-scanner
+          - scap-security-guide
+        state: present
